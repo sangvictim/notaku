@@ -20,7 +20,7 @@ class MasterBarang extends Migration
             $table->integer('harga_grosir');
             $table->integer('harga_retail');
             $table->timestamps();
-            $table->dateTime('deleted_at');
+            $table->dateTime('deleted_at')->nullable();
         });
     }
 
