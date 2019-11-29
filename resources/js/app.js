@@ -5,7 +5,9 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 import App from './views/App'
-import Welcome from './views/Welcome'
+import Dashboard from './views/Dashboard'
+import Penjualan from './views/kasir/Penjualan'
+import Pembelian from './views/kasir/Pembelian'
 
 const router = new VueRouter({
     // mode: 'history',
@@ -13,17 +15,22 @@ const router = new VueRouter({
         {
             path: '/',
             // name: 'home',
-            redirect: '/welcome'
+            redirect: '/dashboard'
         },
         {
             path: '/dashboard',
             // name: 'home',
-            component: Welcome
+            component: Dashboard
         },
         {
-            path: '/tes',
+            path: '/penjualan',
             // name: 'home',
-            component: Welcome
+            component: Penjualan
+        },
+        {
+            path: '/pembelian',
+            // name: 'home',
+            component: Pembelian
         },
     ],
 });
