@@ -31,29 +31,15 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <h4>Nama Toko</h4>
+        <span class="small">Alamat Toko</span>
       </li>
     </ul>
 
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
+      <li class="nav-item">
+        <a class="nav-link" href="#">
           <i class="fa fa-sign-out-alt"></i>
           <span> Sign out</span>
         </a>
@@ -66,7 +52,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <div class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="/img/logo.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">Notaku</span>
     </div>
@@ -75,9 +61,6 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
         <div class="info">
           <a href="#" class="d-block">Alexander Pierce</a>
         </div>
@@ -91,7 +74,7 @@
           
                <li class="nav-item">
             <router-link to="/" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+              <i class="nav-icon fa fa-home"></i>
               <p>
                 Dashboard
               </p>
@@ -101,7 +84,7 @@
           <li class="nav-header">TRANSAKSI</li>
           <li class="nav-item">
             <router-link to="/penjualan" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+              <i class="nav-icon fas fa-tv"></i>
               <p>
                 Penjualan
               </p>
@@ -110,7 +93,7 @@
           </li>
           <li class="nav-item">
           <router-link to="/pembelian" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+          <i class="nav-icon fas fa-money-check-alt"></i>
               <p>
                 Pembelian
               </p>
@@ -121,7 +104,7 @@
           <li class="nav-header">ARSIP</li>
           <li class="nav-item">
             <router-link to="/penjualan" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+              <i class="nav-icon fas fa-exchange-alt"></i>
               <p>
               Retur Penjualan
               </p>
@@ -130,7 +113,7 @@
           </li>
           <li class="nav-item">
           <router-link to="/pembelian" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+              <i class="nav-icon fas fa-exchange-alt"></i>
               <p>
               Retur Pembelian
               </p>
@@ -139,13 +122,13 @@
           </li>
           <li class="nav-item">
             <a href="https://adminlte.io/docs/3.0" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
+              <i class="nav-icon fas fa-coins"></i>
               <p>Hutang</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="https://adminlte.io/docs/3.0" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
+              <i class="nav-icon fas fa-coins"></i>
               <p>Piutang</p>
             </a>
           </li>
@@ -153,7 +136,7 @@
           <li class="nav-header">MASTER</li>
           <li class="nav-item">
             <router-link to="/penjualan" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+              <i class="nav-icon fas fa-book"></i>
               <p>
               Master barang
               </p>
@@ -162,7 +145,7 @@
           </li>
           <li class="nav-item">
           <router-link to="/pembelian" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+              <i class="nav-icon fas fa-user-secret"></i>
               <p>
               Master supplier
               </p>
@@ -171,13 +154,13 @@
           </li>
           <li class="nav-item">
             <a href="https://adminlte.io/docs/3.0" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
+              <i class="nav-icon fas fa-user-friends"></i>
               <p>Master customer</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="https://adminlte.io/docs/3.0" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
+              <i class="nav-icon fab fa-vimeo-v"></i>
               <p>Master Promo</p>
             </a>
           </li>
