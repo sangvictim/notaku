@@ -1977,7 +1977,233 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      tanggal: new Date().toLocaleDateString()
+    };
+  }
+});
 
 /***/ }),
 
@@ -19793,29 +20019,506 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "content-header" }, [
+    _c("section", { staticClass: "content" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "card card-secondary color-palette-box" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("div", { staticClass: "row" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-3 row d-flex align-items-center" },
+                [
+                  _c("label", { staticClass: "col-4" }, [_vm._v("Tanggal")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-8" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.tanggal,
+                          expression: "tanggal"
+                        }
+                      ],
+                      staticClass: "form-control form-control-sm",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.tanggal },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.tanggal = $event.target.value
+                        }
+                      }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _vm._m(2)
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(3)
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-header" }, [
-      _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row mb-2" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("h1", { staticClass: "m-0 text-dark" }, [_vm._v("Penjualan")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
-              _c("li", { staticClass: "breadcrumb-item" }, [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("Home")])
+    return _c("div", { staticClass: "col-2 d-flex align-items-center" }, [
+      _c("h3", { staticClass: "card-title" }, [
+        _c("i", { staticClass: "fas fa-tv" }),
+        _vm._v("\n                Penjualan\n              ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-4 row d-flex align-items-center" }, [
+      _c("label", { staticClass: "col-4" }, [_vm._v("No. Faktur")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-8" }, [
+        _c("input", {
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "email" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-3 row d-flex align-items-center" }, [
+      _c("label", { staticClass: "col-6" }, [_vm._v("Id. Customer")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-6" }, [
+        _c("input", {
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "email" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-4" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("Kode Barang")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", name: "kode_barang", id: "kode_barang" }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-6" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("Nama Barang")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", name: "nama_barang", id: "nama_barang" }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-2" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("Jumlah Barang")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: {
+                type: "number",
+                min: "0",
+                name: "jumlah_barang",
+                id: "jumlah_barang"
+              }
+            })
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-8" }, [
+          _c(
+            "table",
+            { staticClass: "table table-scroll table-striped table-sm" },
+            [
+              _c("thead", [
+                _c("tr", [
+                  _c("th", { staticStyle: { width: "2%" } }, [_vm._v("#")]),
+                  _vm._v(" "),
+                  _c("th", { staticStyle: { width: "15%" } }, [
+                    _vm._v("Kode Barang")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { staticStyle: { width: "40%" } }, [
+                    _vm._v("Nama Barang")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { staticStyle: { width: "10%" } }, [
+                    _vm._v("Jumlah")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "th",
+                    {
+                      staticClass: "text-center",
+                      staticStyle: { width: "15%" }
+                    },
+                    [_vm._v("Harga")]
+                  ),
+                  _vm._v(" "),
+                  _c("th", { staticStyle: { width: "7%" } }, [_vm._v("#")])
+                ])
               ]),
               _vm._v(" "),
-              _c("li", { staticClass: "breadcrumb-item active" }, [
-                _vm._v("Penjualan v1")
+              _c("tbody", [
+                _c("tr", [
+                  _c("td", { staticStyle: { width: "2%" } }, [_vm._v("1.")]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "15%" } }, [
+                    _vm._v("BRG201901")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "40%" } }, [
+                    _vm._v("Nama Barang satu")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "10%" } }, [_vm._v("5")]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    {
+                      staticClass: "text-right",
+                      staticStyle: { width: "15%" }
+                    },
+                    [_vm._v("15.000")]
+                  ),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "7%" } }, [
+                    _c("button", { staticClass: "btn btn-danger btn-sm" }, [
+                      _c("i", { staticClass: "fas fa-trash" })
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("td", { staticStyle: { width: "2%" } }, [_vm._v("1.")]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "15%" } }, [
+                    _vm._v("BRG201901")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "40%" } }, [
+                    _vm._v("Nama Barang satu")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "10%" } }, [_vm._v("5")]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    {
+                      staticClass: "text-right",
+                      staticStyle: { width: "15%" }
+                    },
+                    [_vm._v("15.000")]
+                  ),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "7%" } }, [
+                    _c("button", { staticClass: "btn btn-danger btn-sm" }, [
+                      _c("i", { staticClass: "fas fa-trash" })
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("td", { staticStyle: { width: "2%" } }, [_vm._v("1.")]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "15%" } }, [
+                    _vm._v("BRG201901")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "40%" } }, [
+                    _vm._v("Nama Barang satu")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "10%" } }, [_vm._v("5")]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    {
+                      staticClass: "text-right",
+                      staticStyle: { width: "15%" }
+                    },
+                    [_vm._v("15.000")]
+                  ),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "7%" } }, [
+                    _c("button", { staticClass: "btn btn-danger btn-sm" }, [
+                      _c("i", { staticClass: "fas fa-trash" })
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("td", { staticStyle: { width: "2%" } }, [_vm._v("1.")]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "15%" } }, [
+                    _vm._v("BRG201901")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "40%" } }, [
+                    _vm._v("Nama Barang satu")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "10%" } }, [_vm._v("5")]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    {
+                      staticClass: "text-right",
+                      staticStyle: { width: "15%" }
+                    },
+                    [_vm._v("15.000")]
+                  ),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "7%" } }, [
+                    _c("button", { staticClass: "btn btn-danger btn-sm" }, [
+                      _c("i", { staticClass: "fas fa-trash" })
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("td", { staticStyle: { width: "2%" } }, [_vm._v("1.")]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "15%" } }, [
+                    _vm._v("BRG201901")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "40%" } }, [
+                    _vm._v("Nama Barang satu")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "10%" } }, [_vm._v("5")]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    {
+                      staticClass: "text-right",
+                      staticStyle: { width: "15%" }
+                    },
+                    [_vm._v("15.000")]
+                  ),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "7%" } }, [
+                    _c("button", { staticClass: "btn btn-danger btn-sm" }, [
+                      _c("i", { staticClass: "fas fa-trash" })
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("td", { staticStyle: { width: "2%" } }, [_vm._v("1.")]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "15%" } }, [
+                    _vm._v("BRG201901")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "40%" } }, [
+                    _vm._v("Nama Barang satu")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "10%" } }, [_vm._v("5")]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    {
+                      staticClass: "text-right",
+                      staticStyle: { width: "15%" }
+                    },
+                    [_vm._v("15.000")]
+                  ),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "7%" } }, [
+                    _c("button", { staticClass: "btn btn-danger btn-sm" }, [
+                      _c("i", { staticClass: "fas fa-trash" })
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("td", { staticStyle: { width: "2%" } }, [_vm._v("1.")]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "15%" } }, [
+                    _vm._v("BRG201901")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "40%" } }, [
+                    _vm._v("Nama Barang satu")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "10%" } }, [_vm._v("5")]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    {
+                      staticClass: "text-right",
+                      staticStyle: { width: "15%" }
+                    },
+                    [_vm._v("15.000")]
+                  ),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "7%" } }, [
+                    _c("button", { staticClass: "btn btn-danger btn-sm" }, [
+                      _c("i", { staticClass: "fas fa-trash" })
+                    ])
+                  ])
+                ])
               ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-4" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-3 d-flex align-items-center" }, [
+              _c("span", [_vm._v("Sub total")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-9 text-right" }, [
+              _c(
+                "h1",
+                {
+                  staticStyle: {
+                    color: "red",
+                    "font-size": "5rem",
+                    "font-weight": "bold"
+                  }
+                },
+                [_vm._v("12.000")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-4" }, [
+              _c(
+                "select",
+                { staticClass: "form-control", attrs: { name: "cara_bayar" } },
+                [
+                  _c("option", { attrs: { value: "0" } }, [_vm._v("Cash")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "1" } }, [_vm._v("Transfer")])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-8" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "number", placeholder: "Nominal" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row py-1" }, [
+            _c("div", { staticClass: "col-4 d-flex align-items-center" }, [
+              _c("span", [_vm._v("Kode Promo")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-8" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "text", name: "kode_promo", id: "kode_promo" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-3" }, [
+              _c("label", [_vm._v("Total")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-9 text-right" }, [
+              _c(
+                "h1",
+                { staticStyle: { color: "blue", "font-weight": "bold" } },
+                [_vm._v("12.000")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-4 d-flex align-items-center" }, [
+              _c("label", [_vm._v("Bayar")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-8" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  name: "jumlah_bayar",
+                  id: "jumlah_bayar",
+                  placeholder: "jumlah bayar"
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-3" }, [
+              _c("label", [_vm._v("Kembalian")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-9 text-right" }, [
+              _c("h4", { staticStyle: { "font-weight": "bold" } }, [
+                _vm._v("12.000")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row d-flex justify-content-between" }, [
+            _c("button", { staticClass: "btn btn-primary btn-sm" }, [
+              _c("i", { staticClass: "fa fa-save" }),
+              _vm._v(" Simpan\n                ")
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: "btn btn-primary btn-sm" }, [
+              _c("i", { staticClass: "fa fa-archive" }),
+              _vm._v(" Pending\n                ")
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: "btn btn-primary btn-sm" }, [
+              _c("i", { staticClass: "fa fa-print" }),
+              _vm._v(" Cetak Nota\n                ")
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: "btn btn-primary btn-sm" }, [
+              _c("i", { staticClass: "fa fa-file" }),
+              _vm._v(" Baru\n                ")
             ])
           ])
         ])

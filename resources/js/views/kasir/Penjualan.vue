@@ -1,28 +1,254 @@
 <template>
   <div class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Penjualan</h1>
+    <section class="content">
+      <div class="container-fluid">
+        <!-- COLOR PALETTE -->
+        <div class="card card-secondary color-palette-box">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-2 d-flex align-items-center">
+                <h3 class="card-title">
+                  <i class="fas fa-tv"></i>
+                  Penjualan
+                </h3>
+              </div>
+              <div class="col-3 row d-flex align-items-center">
+                <label class="col-4">Tanggal</label>
+                <div class="col-8">
+                  <input type="text" class="form-control form-control-sm" v-model="tanggal" />
+                </div>
+              </div>
+              <div class="col-4 row d-flex align-items-center">
+                <label class="col-4">No. Faktur</label>
+                <div class="col-8">
+                  <input type="email" class="form-control form-control-sm" />
+                </div>
+              </div>
+              <div class="col-3 row d-flex align-items-center">
+                <label class="col-6">Id. Customer</label>
+                <div class="col-6">
+                  <input type="email" class="form-control form-control-sm" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4">
+                <div class="form-group">
+                  <label>Kode Barang</label>
+                  <input type="text" name="kode_barang" id="kode_barang" class="form-control" />
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label>Nama Barang</label>
+                  <input type="text" name="nama_barang" id="nama_barang" class="form-control" />
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="form-group">
+                  <label>Jumlah Barang</label>
+                  <input
+                    type="number"
+                    min="0"
+                    name="jumlah_barang"
+                    id="jumlah_barang"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8">
+                <table class="table table-scroll table-striped table-sm">
+                  <thead>
+                    <tr>
+                      <th style="width: 2%">#</th>
+                      <th style="width: 15%">Kode Barang</th>
+                      <th style="width: 40%">Nama Barang</th>
+                      <th style="width: 10%">Jumlah</th>
+                      <th style="width: 15%" class="text-center">Harga</th>
+                      <th style="width: 7%">#</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="width: 2%">1.</td>
+                      <td style="width: 15%">BRG201901</td>
+                      <td style="width: 40%">Nama Barang satu</td>
+                      <td style="width: 10%">5</td>
+                      <td style="width: 15%" class="text-right">15.000</td>
+                      <td style="width: 7%">
+                        <button class="btn btn-danger btn-sm">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 2%">1.</td>
+                      <td style="width: 15%">BRG201901</td>
+                      <td style="width: 40%">Nama Barang satu</td>
+                      <td style="width: 10%">5</td>
+                      <td style="width: 15%" class="text-right">15.000</td>
+                      <td style="width: 7%">
+                        <button class="btn btn-danger btn-sm">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 2%">1.</td>
+                      <td style="width: 15%">BRG201901</td>
+                      <td style="width: 40%">Nama Barang satu</td>
+                      <td style="width: 10%">5</td>
+                      <td style="width: 15%" class="text-right">15.000</td>
+                      <td style="width: 7%">
+                        <button class="btn btn-danger btn-sm">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 2%">1.</td>
+                      <td style="width: 15%">BRG201901</td>
+                      <td style="width: 40%">Nama Barang satu</td>
+                      <td style="width: 10%">5</td>
+                      <td style="width: 15%" class="text-right">15.000</td>
+                      <td style="width: 7%">
+                        <button class="btn btn-danger btn-sm">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 2%">1.</td>
+                      <td style="width: 15%">BRG201901</td>
+                      <td style="width: 40%">Nama Barang satu</td>
+                      <td style="width: 10%">5</td>
+                      <td style="width: 15%" class="text-right">15.000</td>
+                      <td style="width: 7%">
+                        <button class="btn btn-danger btn-sm">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 2%">1.</td>
+                      <td style="width: 15%">BRG201901</td>
+                      <td style="width: 40%">Nama Barang satu</td>
+                      <td style="width: 10%">5</td>
+                      <td style="width: 15%" class="text-right">15.000</td>
+                      <td style="width: 7%">
+                        <button class="btn btn-danger btn-sm">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 2%">1.</td>
+                      <td style="width: 15%">BRG201901</td>
+                      <td style="width: 40%">Nama Barang satu</td>
+                      <td style="width: 10%">5</td>
+                      <td style="width: 15%" class="text-right">15.000</td>
+                      <td style="width: 7%">
+                        <button class="btn btn-danger btn-sm">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-4">
+                <div class="row">
+                  <div class="col-3 d-flex align-items-center">
+                    <span>Sub total</span>
+                  </div>
+                  <div class="col-9 text-right">
+                    <h1 style="color: red; font-size: 5rem; font-weight: bold;">12.000</h1>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-4">
+                    <select name="cara_bayar" class="form-control">
+                      <option value="0">Cash</option>
+                      <option value="1">Transfer</option>
+                    </select>
+                  </div>
+                  <div class="col-8">
+                    <input type="number" class="form-control" placeholder="Nominal" />
+                  </div>
+                </div>
+                <div class="row py-1">
+                  <div class="col-4 d-flex align-items-center">
+                    <span>Kode Promo</span>
+                  </div>
+                  <div class="col-8">
+                    <input type="text" name="kode_promo" id="kode_promo" class="form-control" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3">
+                    <label>Total</label>
+                  </div>
+                  <div class="col-9 text-right">
+                    <h1 style="color: blue; font-weight: bold;">12.000</h1>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-4 d-flex align-items-center">
+                    <label>Bayar</label>
+                  </div>
+                  <div class="col-8">
+                    <input
+                      type="text"
+                      name="jumlah_bayar"
+                      id="jumlah_bayar"
+                      class="form-control"
+                      placeholder="jumlah bayar"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3">
+                    <label>Kembalian</label>
+                  </div>
+                  <div class="col-9 text-right">
+                    <h4 style="font-weight: bold;">12.000</h4>
+                  </div>
+                </div>
+                <div class="row d-flex justify-content-between">
+                  <button class="btn btn-primary btn-sm">
+                    <i class="fa fa-save"></i> Simpan
+                  </button>
+                  <button class="btn btn-primary btn-sm">
+                    <i class="fa fa-archive"></i> Pending
+                  </button>
+                  <button class="btn btn-primary btn-sm">
+                    <i class="fa fa-print"></i> Cetak Nota
+                  </button>
+                  <button class="btn btn-primary btn-sm">
+                    <i class="fa fa-file"></i> Baru
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- /.col -->
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item">
-              <a href="#">Home</a>
-            </li>
-            <li class="breadcrumb-item active">Penjualan v1</li>
-          </ol>
-        </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
-    </div>
+    </section>
     <!-- /.container-fluid -->
   </div>
   <!-- /.content-header -->
 </template>
 
-    <script>
-export default {};
+<script>
+export default {
+  data() {
+    return {
+      tanggal: new Date().toLocaleDateString()
+    };
+  }
+};
 </script>

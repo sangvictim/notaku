@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="{{mix('/css/app.css')}}">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
@@ -31,8 +32,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <h4>Nama Toko</h4>
-        <span class="small">Alamat Toko</span>
+      <span class="nav-link">Nama Toko</span>
       </li>
     </ul>
 
@@ -92,10 +92,28 @@
             </router-link>
           </li>
           <li class="nav-item">
+            <router-link to="/penjualan" class="nav-link">
+              <i class="nav-icon fas fa-tv"></i>
+              <p>
+                Penjualan (Pending)
+              </p>
+            
+            </router-link>
+          </li>
+          <li class="nav-item">
           <router-link to="/pembelian" class="nav-link">
           <i class="nav-icon fas fa-money-check-alt"></i>
               <p>
                 Pembelian
+              </p>
+            
+            </router-link>
+          </li>
+          <li class="nav-item">
+          <router-link to="/pembelian" class="nav-link">
+          <i class="nav-icon fas fa-money-check-alt"></i>
+              <p>
+                Pembelian (Pending)
               </p>
             
             </router-link>
@@ -243,10 +261,9 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
+    <strong>Copyright &copy; 2019 Notaku.</strong>
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.1
+      <b>Version</b> 1.0.0
     </div>
   </footer>
 
@@ -274,7 +291,5 @@
 <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/dist/js/pages/dashboard.js"></script>
 </body>
 </html>

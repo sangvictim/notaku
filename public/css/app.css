@@ -1,0 +1,11 @@
+.table-scroll thead {
+  display: block;
+}
+
+.table-scroll tbody {
+  max-height: 16rem !important;
+  overflow: auto;
+  display: block;
+  width: 100%;
+}
+
