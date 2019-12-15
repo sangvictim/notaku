@@ -9,15 +9,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- Tempusdominus Bbootstrap 4 -->
-  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <link rel="stylesheet" href="{{mix('/css/app.css')}}">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -92,28 +88,10 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/penjualan" class="nav-link">
-              <i class="nav-icon fas fa-tv"></i>
-              <p>
-                Penjualan (Pending)
-              </p>
-            
-            </router-link>
-          </li>
-          <li class="nav-item">
           <router-link to="/pembelian" class="nav-link">
           <i class="nav-icon fas fa-money-check-alt"></i>
               <p>
                 Pembelian
-              </p>
-            
-            </router-link>
-          </li>
-          <li class="nav-item">
-          <router-link to="/pembelian" class="nav-link">
-          <i class="nav-icon fas fa-money-check-alt"></i>
-              <p>
-                Pembelian (Pending)
               </p>
             
             </router-link>
@@ -139,16 +117,22 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.0" class="nav-link">
+          <router-link to="/hutang" class="nav-link">
               <i class="nav-icon fas fa-coins"></i>
-              <p>Hutang</p>
-            </a>
+              <p>
+              Hutang
+              </p>
+            
+            </router-link>
           </li>
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.0" class="nav-link">
+          <router-link to="/piutang" class="nav-link">
               <i class="nav-icon fas fa-coins"></i>
-              <p>Piutang</p>
-            </a>
+              <p>
+              Piutang
+              </p>
+            
+            </router-link>
           </li>
 
           <li class="nav-header">MASTER</li>
@@ -282,11 +266,6 @@
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <!-- Bootstrap 4 -->
 <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- daterangepicker -->
-<script src="/plugins/moment/moment.min.js"></script>
-<script src="/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->

@@ -6,8 +6,12 @@ Vue.use(VueRouter)
 
 import App from './views/App'
 import Dashboard from './views/Dashboard'
-import Penjualan from './views/kasir/Penjualan'
-import Pembelian from './views/kasir/Pembelian'
+import Penjualan from './views/transaksi/Penjualan'
+import Pembelian from './views/transaksi/Pembelian'
+import Hutang from './views/arsip/Hutang'
+import ListHutang from './views/arsip/hutang/ListHutang'
+import PelunasanHutang from './views/arsip/hutang/PelunasanHutang'
+import Piutang from './views/arsip/Piutang'
 
 const router = new VueRouter({
     // mode: 'history',
@@ -31,6 +35,26 @@ const router = new VueRouter({
             path: '/pembelian',
             // name: 'home',
             component: Pembelian
+        },
+        {
+            path: '/hutang',
+            // name: 'home',
+            component: Hutang
+        },
+        {
+            path: '/daftar-hutang',
+            // name: 'home',
+            component: ListHutang
+        },
+        {
+            path: '/pelunasan-hutang',
+            // name: 'home',
+            component: PelunasanHutang
+        },
+        {
+            path: '/piutang',
+            // name: 'home',
+            component: Piutang
         },
     ],
 });
