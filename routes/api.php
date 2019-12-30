@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::post('register', 'AuthController@register')->middleware('auth.jwt');
+Route::post('login', 'AuthController@login');
+
+
+Route::get('/', function () {
+    return [
+        'app' => config('app.name'),
+        'version' => '1.0.0',
+    ];
+});

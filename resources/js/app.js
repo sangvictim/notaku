@@ -12,49 +12,46 @@ import Hutang from './views/arsip/Hutang'
 import ListHutang from './views/arsip/hutang/ListHutang'
 import PelunasanHutang from './views/arsip/hutang/PelunasanHutang'
 import Piutang from './views/arsip/Piutang'
+import MasterBarang from './views/master/Barang'
 
 const router = new VueRouter({
     // mode: 'history',
     routes: [
         {
             path: '/',
-            // name: 'home',
             redirect: '/dashboard'
         },
         {
             path: '/dashboard',
-            // name: 'home',
             component: Dashboard
         },
         {
             path: '/penjualan',
-            // name: 'home',
             component: Penjualan
         },
         {
             path: '/pembelian',
-            // name: 'home',
             component: Pembelian
         },
         {
             path: '/hutang',
-            // name: 'home',
             component: Hutang
         },
         {
             path: '/daftar-hutang',
-            // name: 'home',
             component: ListHutang
         },
         {
             path: '/pelunasan-hutang',
-            // name: 'home',
             component: PelunasanHutang
         },
         {
             path: '/piutang',
-            // name: 'home',
             component: Piutang
+        },
+        {
+            path: '/master-barang',
+            component: MasterBarang
         },
     ],
 });

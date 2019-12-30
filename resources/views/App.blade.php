@@ -137,7 +137,7 @@
 
           <li class="nav-header">MASTER</li>
           <li class="nav-item">
-            <router-link to="/penjualan" class="nav-link">
+            <router-link to="/master-barang" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
               Master barang

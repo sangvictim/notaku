@@ -192,7 +192,7 @@
                       <span>Sub total</span>
                     </div>
                     <div class="col-9 text-right">
-                      <h1 style="color: red; font-size: 5rem; font-weight: bold;">12.000</h1>
+                      <h1 style="color: red; font-size: 3rem; font-weight: bold;">12.000</h1>
                     </div>
                   </div>
                   <div class="row">
