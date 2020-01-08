@@ -20,52 +20,98 @@
           </div>
         </div>
         <div class="card-body">
-          <table class="table table-striped table-sm table-bordered">
-            <thead>
-              <tr>
-                <th style="width: 2%" class="text-center">No</th>
-                <th>Kode Barang</th>
-                <th>Nama Barang</th>
-                <th>Harga Beli</th>
-                <th>Harga Grosir</th>
-                <th>Harga Retail</th>
-                <th style="width: 5%" class="text-center">#</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="text-center">1</td>
-                <td>BRG12345</td>
-                <td>Nama Barang 1</td>
-                <td>1.000.000</td>
-                <td>1.000.000</td>
-                <td>500.000</td>
-                <td class="text-center">
-                  <div class="btn-group dropleft">
-                    <button
-                      class="btn btn-info btn-sm dropdown-toggle dropdown-toggle-split"
-                      data-toggle="dropdown"
-                    >
-                      <i class="fa fa-cog str-only"></i>
-                    </button>
-                    <div class="dropdown-menu">
-                      <a href class="dropdown-item">Edit</a>
-                      <a href class="dropdown-item">Delete</a>
-                    </div>
+          <b-table
+            striped
+            hover
+            :items="items"
+            :fields="fields"
+            :per-page="perPage"
+            :current-page="currentPage"
+            responsive="sm"
+            small
+          >
+            <template v-slot:cell(No)="data">{{ data.index + 1 }}</template>
+            <template v-slot:cell(#)="data">
+              <div class="btn-group dropleft">
+                <button
+                  class="btn btn-info btn-sm dropdown-toggle dropdown-toggle-split"
+                  data-toggle="dropdown"
+                >
+                  <i class="fa fa-cog str-only"></i>
+                </button>
+                <div class="dropdown-menu">
+                  <a href class="dropdown-item">Edit</a>
+                  <a href class="dropdown-item">Delete</a>
+                </div>
+              </div>
+            </template>
+          </b-table>
+          <div class="row">
+            <div class="col-3">
+              <div class="row">
+                <div class="col-7">Show per page:</div>
+                <div class="col-5">
+                  <div>
+                    <b-form-select v-model="perPage" :options="perPageList"></b-form-select>
                   </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-9">
+              <b-pagination v-model="currentPage" :total-rows="rows" :per-page="perPage"></b-pagination>
+            </div>
+          </div>
         </div>
       </div>
-      <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
   </div>
-  <!-- /.content-header -->
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+export default {
+  data() {
+    return {
+      perPage: 10,
+      perPageList: [
+        { value: 10, text: "10" },
+        { value: 25, text: "25" },
+        { value: 50, text: "50" },
+        { value: 100, text: "100" },
+        { value: 200, text: "200" }
+      ],
+      currentPage: 1,
+      fields: [
+        "No",
+        "kode",
+        { key: "name", sortable: true },
+        { key: "harga_beli", sortable: true },
+        { key: "harga_grosir", sortable: true },
+        { key: "harga_retail", sortable: true },
+        "#"
+      ],
+      items: []
+    };
+  },
+  methods: {
+    getData() {
+      axios
+        .get("http://notaku.test/api/master/barang/get-data")
+        .then(res => {
+          this.items = res.data.result;
+        })
+        .catch(err => {
+          alert(JSON.stringify(err));
+        });
+    }
+  },
+  computed: {
+    rows() {
+      return this.items.length;
+    }
+  },
+  created() {
+    this.getData();
+  }
+};
 </script>

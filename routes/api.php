@@ -13,13 +13,23 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 // Route::post('register', 'AuthController@register')->middleware('auth.jwt');
 Route::post('login', 'AuthController@login');
+Route::get('login', 'AuthController@login');
 
+// Api gorup modul master
+Route::prefix('master')->group(function () {
+
+    // Api modul master
+    Route::prefix('barang')->group(function () {
+        // Api function dari modul master barang
+        Route::get('get-data', 'master\Barang@getData');
+    });
+});
 
 Route::get('/', function () {
     return [

@@ -17,6 +17,7 @@ class MasterBarang extends Migration
             $table->bigIncrements('id');
             $table->string('kode');
             $table->string('name');
+            $table->integer('harga_beli');
             $table->integer('harga_grosir');
             $table->integer('harga_retail');
             $table->timestamps();

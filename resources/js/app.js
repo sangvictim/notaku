@@ -1,9 +1,10 @@
 require('./bootstrap');
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import BootstrapVue from 'bootstrap-vue'
 
 Vue.use(VueRouter)
-
+Vue.use(BootstrapVue)
 import App from './views/App'
 import Dashboard from './views/Dashboard'
 import Penjualan from './views/transaksi/Penjualan'

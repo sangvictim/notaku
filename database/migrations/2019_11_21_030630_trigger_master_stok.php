@@ -16,7 +16,7 @@ class TriggerMasterStok extends Migration
         DB::unprepared('
         CREATE TRIGGER trigger_master_stok AFTER INSERT ON `master_barang` FOR EACH ROW
             BEGIN
-                INSERT INTO master_stok (`id_barang`, `stok_barang`) 
+                INSERT INTO master_stok (`kode_barang`, `stok_barang`) 
                 VALUES (NEW.kode, 0);
             END
         ');
