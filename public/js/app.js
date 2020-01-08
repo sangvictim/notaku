@@ -2351,7 +2351,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2386,7 +2385,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         key: "harga_retail",
         sortable: true
-      }, "#"],
+      }, "action"],
       items: []
     };
   },
@@ -2394,7 +2393,7 @@ __webpack_require__.r(__webpack_exports__);
     getData: function getData() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://notaku.test/api/master/barang/get-data").then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://notaku.test/api/master/barang/index").then(function (res) {
         _this.items = res.data.result;
       })["catch"](function (err) {
         alert(JSON.stringify(err));
@@ -53222,7 +53221,7 @@ var render = function() {
                   }
                 },
                 {
-                  key: "cell(#)",
+                  key: "cell(action)",
                   fn: function(data) {
                     return [
                       _c("div", { staticClass: "btn-group dropleft" }, [
@@ -53244,15 +53243,6 @@ var render = function() {
                               attrs: { href: "" }
                             },
                             [_vm._v("Edit")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "dropdown-item",
-                              attrs: { href: "" }
-                            },
-                            [_vm._v("Delete")]
                           )
                         ])
                       ])

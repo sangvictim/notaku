@@ -27,7 +27,11 @@ Route::prefix('master')->group(function () {
     // Api modul master
     Route::prefix('barang')->group(function () {
         // Api function dari modul master barang
-        Route::get('get-data', 'master\Barang@getData');
+        Route::get('index', 'master\Barang@index');
+        Route::post('create', 'master\Barang@create');
+        Route::get('search/{query}', 'master\Barang@show');
+        Route::get('edit/{id}', 'master\Barang@edit');
+        Route::post('update/{id}', 'master\Barang@update');
     });
 });
 

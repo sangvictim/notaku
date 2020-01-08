@@ -31,7 +31,7 @@
             small
           >
             <template v-slot:cell(No)="data">{{ data.index + 1 }}</template>
-            <template v-slot:cell(#)="data">
+            <template v-slot:cell(action)="data">
               <div class="btn-group dropleft">
                 <button
                   class="btn btn-info btn-sm dropdown-toggle dropdown-toggle-split"
@@ -41,7 +41,6 @@
                 </button>
                 <div class="dropdown-menu">
                   <a href class="dropdown-item">Edit</a>
-                  <a href class="dropdown-item">Delete</a>
                 </div>
               </div>
             </template>
@@ -88,7 +87,7 @@ export default {
         { key: "harga_beli", sortable: true },
         { key: "harga_grosir", sortable: true },
         { key: "harga_retail", sortable: true },
-        "#"
+        "action"
       ],
       items: []
     };
@@ -96,7 +95,7 @@ export default {
   methods: {
     getData() {
       axios
-        .get("http://notaku.test/api/master/barang/get-data")
+        .get("http://notaku.test/api/master/barang/index")
         .then(res => {
           this.items = res.data.result;
         })
