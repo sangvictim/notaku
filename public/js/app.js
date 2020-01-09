@@ -2462,6 +2462,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -57049,38 +57053,42 @@ var render = function() {
         _c("div", { staticClass: "card card-secondary color-palette-box" }, [
           _c("div", { staticClass: "card-header" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-2" }, [
-                _c(
-                  "button",
-                  {
-                    directives: [
+              _c("div", { staticClass: "col-3" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-6" }, [
+                    _c(
+                      "button",
                       {
-                        name: "b-modal",
-                        rawName: "v-b-modal.modal-create",
-                        modifiers: { "modal-create": true }
-                      }
-                    ],
-                    staticClass: "btn btn-info btn-block"
-                  },
-                  [
-                    _c("i", { staticClass: "fa fa-plus" }),
-                    _vm._v(" Barang\n            ")
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-2" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-info btn-block",
-                    on: { click: _vm.getDataTrash }
-                  },
-                  [
-                    _c("i", { staticClass: "fa fa-trash-alt" }),
-                    _vm._v(" Trash\n            ")
-                  ]
-                )
+                        directives: [
+                          {
+                            name: "b-modal",
+                            rawName: "v-b-modal.modal-create",
+                            modifiers: { "modal-create": true }
+                          }
+                        ],
+                        staticClass: "btn btn-info btn-block"
+                      },
+                      [
+                        _c("i", { staticClass: "fa fa-plus" }),
+                        _vm._v(" Barang\n                ")
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-6" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-info btn-block",
+                        on: { click: _vm.getDataTrash }
+                      },
+                      [
+                        _c("i", { staticClass: "fa fa-trash-alt" }),
+                        _vm._v(" Trash\n                ")
+                      ]
+                    )
+                  ])
+                ])
               ]),
               _vm._v(" "),
               _vm._m(0),
@@ -57507,7 +57515,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-5 d-flex justify-content-center" }, [
+    return _c("div", { staticClass: "col-6 d-flex justify-content-center" }, [
       _c("h3", [
         _c("i", { staticClass: "fa fa-coins" }),
         _vm._v(" Master Barang\n            ")

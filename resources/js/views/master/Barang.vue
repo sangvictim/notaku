@@ -4,17 +4,21 @@
       <div class="card card-secondary color-palette-box">
         <div class="card-header">
           <div class="row">
-            <div class="col-2">
-              <button class="btn btn-info btn-block" v-b-modal.modal-create>
-                <i class="fa fa-plus"></i> Barang
-              </button>
+            <div class="col-3">
+              <div class="row">
+                <div class="col-6">
+                  <button class="btn btn-info btn-block" v-b-modal.modal-create>
+                    <i class="fa fa-plus"></i> Barang
+                  </button>
+                </div>
+                <div class="col-6">
+                  <button class="btn btn-info btn-block" @click="getDataTrash">
+                    <i class="fa fa-trash-alt"></i> Trash
+                  </button>
+                </div>
+              </div>
             </div>
-            <div class="col-2">
-              <button class="btn btn-info btn-block" @click="getDataTrash">
-                <i class="fa fa-trash-alt"></i> Trash
-              </button>
-            </div>
-            <div class="col-5 d-flex justify-content-center">
+            <div class="col-6 d-flex justify-content-center">
               <h3>
                 <i class="fa fa-coins"></i> Master Barang
               </h3>
