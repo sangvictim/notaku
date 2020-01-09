@@ -2351,6 +2351,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2386,15 +2445,44 @@ __webpack_require__.r(__webpack_exports__);
         key: "harga_retail",
         sortable: true
       }, "action"],
-      items: []
+      items: [],
+      newData: {}
     };
   },
   methods: {
     getData: function getData() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://notaku.test/api/master/barang/index").then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/master/barang/index").then(function (res) {
         _this.items = res.data.result;
+      })["catch"](function (err) {
+        alert(JSON.stringify(err));
+      });
+    },
+    createData: function createData() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/master/barang/store", {
+        kode: this.newData.kode,
+        name: this.newData.name,
+        harga_beli: this.newData.harga_beli,
+        harga_grosir: this.newData.harga_grosir,
+        harga_retail: this.newData.harga_retail
+      }).then(function (res) {
+        _this2.$refs["modal-create"].hide();
+
+        _this2.getData();
+
+        _this2.newData = {};
+      });
+    },
+    editData: function editData(id) {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/master/barang/edit", {
+        id: id
+      }).then(function (res) {
+        _this3.newData = res.data.result;
       })["catch"](function (err) {
         alert(JSON.stringify(err));
       });
@@ -53193,146 +53281,370 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "content-header" }, [
-    _c("div", { staticClass: "container-fluid" }, [
-      _c("div", { staticClass: "card card-secondary color-palette-box" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "card-body" },
-          [
-            _c("b-table", {
-              attrs: {
-                striped: "",
-                hover: "",
-                items: _vm.items,
-                fields: _vm.fields,
-                "per-page": _vm.perPage,
-                "current-page": _vm.currentPage,
-                responsive: "sm",
-                small: ""
-              },
-              scopedSlots: _vm._u([
-                {
-                  key: "cell(No)",
-                  fn: function(data) {
-                    return [_vm._v(_vm._s(data.index + 1))]
-                  }
-                },
-                {
-                  key: "cell(action)",
-                  fn: function(data) {
-                    return [
-                      _c("div", { staticClass: "btn-group dropleft" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "btn btn-info btn-sm dropdown-toggle dropdown-toggle-split",
-                            attrs: { "data-toggle": "dropdown" }
-                          },
-                          [_c("i", { staticClass: "fa fa-cog str-only" })]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "dropdown-menu" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "dropdown-item",
-                              attrs: { href: "" }
-                            },
-                            [_vm._v("Edit")]
-                          )
-                        ])
-                      ])
-                    ]
-                  }
-                }
-              ])
-            }),
-            _vm._v(" "),
+  return _c(
+    "div",
+    { staticClass: "content-header" },
+    [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "card card-secondary color-palette-box" }, [
+          _c("div", { staticClass: "card-header" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-3" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-7" }, [
-                    _vm._v("Show per page:")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-5" }, [
-                    _c(
-                      "div",
-                      [
-                        _c("b-form-select", {
-                          attrs: { options: _vm.perPageList },
-                          model: {
-                            value: _vm.perPage,
-                            callback: function($$v) {
-                              _vm.perPage = $$v
-                            },
-                            expression: "perPage"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ])
-                ])
+              _c("div", { staticClass: "col-2" }, [
+                _c(
+                  "button",
+                  {
+                    directives: [
+                      {
+                        name: "b-modal",
+                        rawName: "v-b-modal.modal-create",
+                        modifiers: { "modal-create": true }
+                      }
+                    ],
+                    staticClass: "btn btn-info"
+                  },
+                  [
+                    _c("i", { staticClass: "fa fa-plus" }),
+                    _vm._v(" Barang\n            ")
+                  ]
+                )
               ]),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-9" },
-                [
-                  _c("b-pagination", {
-                    attrs: { "total-rows": _vm.rows, "per-page": _vm.perPage },
-                    model: {
-                      value: _vm.currentPage,
-                      callback: function($$v) {
-                        _vm.currentPage = $$v
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._m(1)
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "card-body" },
+            [
+              _c("b-table", {
+                attrs: {
+                  striped: "",
+                  hover: "",
+                  items: _vm.items,
+                  fields: _vm.fields,
+                  "per-page": _vm.perPage,
+                  "current-page": _vm.currentPage,
+                  responsive: "sm",
+                  small: ""
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "cell(No)",
+                    fn: function(data) {
+                      return [_vm._v(_vm._s(data.index + 1))]
+                    }
+                  },
+                  {
+                    key: "cell(action)",
+                    fn: function(data) {
+                      return [
+                        _c("div", { staticClass: "btn-group dropleft" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn btn-info btn-sm dropdown-toggle dropdown-toggle-split",
+                              attrs: { "data-toggle": "dropdown" }
+                            },
+                            [_c("i", { staticClass: "fa fa-cog str-only" })]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "dropdown-menu" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "dropdown-item",
+                                attrs: { href: "" }
+                              },
+                              [_vm._v("Edit")]
+                            )
+                          ])
+                        ])
+                      ]
+                    }
+                  }
+                ])
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-3" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-7" }, [
+                      _vm._v("Show per page:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-5" }, [
+                      _c(
+                        "div",
+                        [
+                          _c("b-form-select", {
+                            attrs: { options: _vm.perPageList },
+                            model: {
+                              value: _vm.perPage,
+                              callback: function($$v) {
+                                _vm.perPage = $$v
+                              },
+                              expression: "perPage"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-9" },
+                  [
+                    _c("b-pagination", {
+                      attrs: {
+                        "total-rows": _vm.rows,
+                        "per-page": _vm.perPage
                       },
-                      expression: "currentPage"
+                      model: {
+                        value: _vm.currentPage,
+                        callback: function($$v) {
+                          _vm.currentPage = $$v
+                        },
+                        expression: "currentPage"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ])
+            ],
+            1
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "b-modal",
+        {
+          ref: "modal-create",
+          attrs: {
+            id: "modal-create",
+            title: "Master Barang Baru",
+            "hide-footer": ""
+          }
+        },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-12 mb-2" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-4" }, [
+                  _c("label", [_vm._v("Kode Barang")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-8" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.newData.kode,
+                        expression: "newData.kode"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.newData.kode },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.newData, "kode", $event.target.value)
+                      }
                     }
                   })
-                ],
-                1
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 mb-2" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-4" }, [
+                  _c("label", [_vm._v("Nama Barang")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-8" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.newData.name,
+                        expression: "newData.name"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.newData.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.newData, "name", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 mb-2" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-4" }, [
+                  _c("label", [_vm._v("Harga Beli")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-8" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.newData.harga_beli,
+                        expression: "newData.harga_beli"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "number", min: "0" },
+                    domProps: { value: _vm.newData.harga_beli },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.newData, "harga_beli", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 mb-2" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-4" }, [
+                  _c("label", [_vm._v("Harga Grosir")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-8" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.newData.harga_grosir,
+                        expression: "newData.harga_grosir"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "number", min: "0" },
+                    domProps: { value: _vm.newData.harga_grosir },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.newData,
+                          "harga_grosir",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 mb-2" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-4" }, [
+                  _c("label", [_vm._v("Harga Retail")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-8" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.newData.harga_retail,
+                        expression: "newData.harga_retail"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "number", min: "0" },
+                    domProps: { value: _vm.newData.harga_retail },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.newData,
+                          "harga_retail",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 mb-2" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-block",
+                  on: { click: _vm.createData }
+                },
+                [
+                  _c("i", { staticClass: "fa fa-save" }),
+                  _vm._v(" Simpan\n        ")
+                ]
               )
             ])
-          ],
-          1
-        )
-      ])
-    ])
-  ])
+          ])
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-2" }, [
-          _c("button", { staticClass: "btn btn-info" }, [
-            _c("i", { staticClass: "fa fa-plus" }),
-            _vm._v(" Barang\n            ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-7 d-flex justify-content-center" }, [
-          _c("h3", [
-            _c("i", { staticClass: "fa fa-coins" }),
-            _vm._v(" Master Barang\n            ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-3" }, [
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", placeholder: "Cari Kode / Nama Barang" }
-          })
-        ])
+    return _c("div", { staticClass: "col-7 d-flex justify-content-center" }, [
+      _c("h3", [
+        _c("i", { staticClass: "fa fa-coins" }),
+        _vm._v(" Master Barang\n            ")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-3" }, [
+      _c("input", {
+        staticClass: "form-control",
+        attrs: { type: "text", placeholder: "Cari Kode / Nama Barang" }
+      })
     ])
   }
 ]

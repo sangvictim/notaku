@@ -5,6 +5,8 @@ namespace App\Http\Controllers\master;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\model\master\M_barang;
+use Validator;
+use DB;
 
 class Barang extends Controller
 {
@@ -40,7 +42,30 @@ class Barang extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'kode'=>'required',
+            'name'=>'required',
+            'harga_beli'=>'required',
+            'harga_grosir'=>'required',
+            'harga_retail'=>'required',
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => '200 OK',
+                'message' => $validator,
+            ]);
+        } else {
+            DB::table('master_barang')->updateOrInsert(
+                    [
+                        'kode' => $request['kode'],
+                        'name' => $request['name'],
+                        'harga_beli' => $request['harga_beli'],
+                        'harga_grosir' => $request['harga_grosir'],
+                        'harga_retail' => $request['harga_retail'],
+                    ]
+                );
+        }
+        
     }
 
     /**

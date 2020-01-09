@@ -5,7 +5,7 @@
         <div class="card-header">
           <div class="row">
             <div class="col-2">
-              <button class="btn btn-info">
+              <button class="btn btn-info" v-b-modal.modal-create>
                 <i class="fa fa-plus"></i> Barang
               </button>
             </div>
@@ -63,6 +63,65 @@
         </div>
       </div>
     </div>
+    <b-modal id="modal-create" ref="modal-create" title="Master Barang Baru" hide-footer>
+      <div class="row">
+        <div class="col-12 mb-2">
+          <div class="row">
+            <div class="col-4">
+              <label>Kode Barang</label>
+            </div>
+            <div class="col-8">
+              <input type="text" class="form-control" v-model="newData.kode" />
+            </div>
+          </div>
+        </div>
+        <div class="col-12 mb-2">
+          <div class="row">
+            <div class="col-4">
+              <label>Nama Barang</label>
+            </div>
+            <div class="col-8">
+              <input type="text" class="form-control" v-model="newData.name" />
+            </div>
+          </div>
+        </div>
+        <div class="col-12 mb-2">
+          <div class="row">
+            <div class="col-4">
+              <label>Harga Beli</label>
+            </div>
+            <div class="col-8">
+              <input type="number" min="0" class="form-control" v-model="newData.harga_beli" />
+            </div>
+          </div>
+        </div>
+        <div class="col-12 mb-2">
+          <div class="row">
+            <div class="col-4">
+              <label>Harga Grosir</label>
+            </div>
+            <div class="col-8">
+              <input type="number" min="0" class="form-control" v-model="newData.harga_grosir" />
+            </div>
+          </div>
+        </div>
+        <div class="col-12 mb-2">
+          <div class="row">
+            <div class="col-4">
+              <label>Harga Retail</label>
+            </div>
+            <div class="col-8">
+              <input type="number" min="0" class="form-control" v-model="newData.harga_retail" />
+            </div>
+          </div>
+        </div>
+        <div class="col-12 mb-2">
+          <button class="btn btn-primary btn-block" @click="createData">
+            <i class="fa fa-save"></i> Simpan
+          </button>
+        </div>
+      </div>
+    </b-modal>
   </div>
 </template>
 
@@ -89,15 +148,41 @@ export default {
         { key: "harga_retail", sortable: true },
         "action"
       ],
-      items: []
+      items: [],
+      newData: {}
     };
   },
   methods: {
     getData() {
       axios
-        .get("http://notaku.test/api/master/barang/index")
+        .get("/api/master/barang/index")
         .then(res => {
           this.items = res.data.result;
+        })
+        .catch(err => {
+          alert(JSON.stringify(err));
+        });
+    },
+    createData() {
+      axios
+        .post("/api/master/barang/store", {
+          kode: this.newData.kode,
+          name: this.newData.name,
+          harga_beli: this.newData.harga_beli,
+          harga_grosir: this.newData.harga_grosir,
+          harga_retail: this.newData.harga_retail
+        })
+        .then(res => {
+          this.$refs["modal-create"].hide();
+          this.getData();
+          this.newData = {};
+        });
+    },
+    editData(id) {
+      axios
+        .get("/api/master/barang/edit", { id: id })
+        .then(res => {
+          this.newData = res.data.result;
         })
         .catch(err => {
           alert(JSON.stringify(err));

@@ -28,7 +28,7 @@ Route::prefix('master')->group(function () {
     Route::prefix('barang')->group(function () {
         // Api function dari modul master barang
         Route::get('index', 'master\Barang@index');
-        Route::post('create', 'master\Barang@create');
+        Route::post('store', 'master\Barang@store');
         Route::get('search/{query}', 'master\Barang@show');
         Route::get('edit/{id}', 'master\Barang@edit');
         Route::post('update/{id}', 'master\Barang@update');
