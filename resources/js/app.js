@@ -2,9 +2,13 @@ require('./bootstrap');
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import BootstrapVue from 'bootstrap-vue'
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
+Vue.use(VueSweetalert2)
+
 import App from './views/App'
 import Dashboard from './views/Dashboard'
 import Penjualan from './views/transaksi/Penjualan'

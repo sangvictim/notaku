@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\model\master\M_barang;
 use Validator;
-use DB;
 
 class Barang extends Controller
 {
@@ -25,22 +24,12 @@ class Barang extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * updateOrCreate a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function updateOrCreate(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'kode'=>'required',
@@ -55,15 +44,16 @@ class Barang extends Controller
                 'message' => $validator,
             ]);
         } else {
-            DB::table('master_barang')->updateOrInsert(
-                    [
-                        'kode' => $request['kode'],
-                        'name' => $request['name'],
-                        'harga_beli' => $request['harga_beli'],
-                        'harga_grosir' => $request['harga_grosir'],
-                        'harga_retail' => $request['harga_retail'],
-                    ]
-                );
+            M_barang::updateOrCreate(
+                [
+                    'kode' => $request['kode'],
+                ],
+                [
+                    'name' => $request['name'],
+                    'harga_beli' => $request['harga_beli'],
+                    'harga_grosir' => $request['harga_grosir'],
+                    'harga_retail' => $request['harga_retail'],
+                ]);
         }
         
     }
@@ -74,9 +64,13 @@ class Barang extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function getTrash()
     {
-        //
+        $data = M_barang::select('id', 'kode', 'name')->onlyTrashed()->get();
+        return response()->json([
+            'status' => '200 OK',
+            'result' => $data,
+        ]);
     }
 
     /**
@@ -97,9 +91,10 @@ class Barang extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function restoreData($id)
     {
-        //
+        M_barang::withTrashed()->where('id', $id)->restore();
+    
     }
 
     /**
@@ -110,6 +105,6 @@ class Barang extends Controller
      */
     public function destroy($id)
     {
-        //
+        M_barang::findOrfail($id)->delete();
     }
 }

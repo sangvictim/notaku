@@ -28,10 +28,10 @@ Route::prefix('master')->group(function () {
     Route::prefix('barang')->group(function () {
         // Api function dari modul master barang
         Route::get('index', 'master\Barang@index');
-        Route::post('store', 'master\Barang@store');
-        Route::get('search/{query}', 'master\Barang@show');
-        Route::get('edit/{id}', 'master\Barang@edit');
-        Route::post('update/{id}', 'master\Barang@update');
+        Route::post('updateOrCreate', 'master\Barang@updateOrCreate');
+        Route::delete('delete/{id}', 'master\Barang@destroy');
+        Route::get('getTrash', 'master\Barang@getTrash');
+        Route::get('restoreData/{id}', 'master\Barang@restoreData');
     });
 });
 

@@ -15,13 +15,13 @@ class MasterBarang extends Migration
     {
         Schema::create('master_barang', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('kode');
+            $table->string('kode')->unique();
             $table->string('name');
             $table->integer('harga_beli');
             $table->integer('harga_grosir');
             $table->integer('harga_retail');
             $table->timestamps();
-            $table->dateTime('deleted_at')->nullable();
+            $table->softDeletes();
         });
     }
 
