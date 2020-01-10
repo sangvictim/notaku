@@ -24,7 +24,12 @@
               </h3>
             </div>
             <div class="col-3">
-              <input type="text" class="form-control" placeholder="Cari Kode / Nama Barang" />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Cari Kode / Nama Barang"
+                v-model="searchQuery"
+              />
             </div>
           </div>
         </div>
@@ -32,7 +37,7 @@
           <b-table
             striped
             hover
-            :items="items"
+            :items="resultQuery"
             :fields="fields"
             :per-page="perPage"
             :current-page="currentPage"
@@ -206,7 +211,8 @@ export default {
       items: [],
       newData: {},
       itemsTrash: [],
-      fieldsTrash: ["kode", "name", "action"]
+      fieldsTrash: ["kode", "name", "action"],
+      searchQuery: null
     };
   },
   methods: {
@@ -295,6 +301,22 @@ export default {
   computed: {
     rows() {
       return this.items.length;
+    },
+    resultQuery() {
+      if (this.searchQuery) {
+        return this.items.filter(item => {
+          return this.searchQuery
+            .toLowerCase()
+            .split(" ")
+            .every(
+              v =>
+                item.kode.toLowerCase().includes(v) +
+                item.name.toLowerCase().includes(v)
+            );
+        });
+      } else {
+        return this.items;
+      }
     }
   },
   created() {
