@@ -18,6 +18,7 @@ import ListHutang from './views/arsip/hutang/ListHutang'
 import PelunasanHutang from './views/arsip/hutang/PelunasanHutang'
 import Piutang from './views/arsip/Piutang'
 import MasterBarang from './views/master/Barang'
+import MasterSupplier from './views/master/Supplier'
 
 const router = new VueRouter({
     // mode: 'history',
@@ -57,6 +58,10 @@ const router = new VueRouter({
         {
             path: '/master-barang',
             component: MasterBarang
+        },
+        {
+            path: '/master-supplier',
+            component: MasterSupplier
         },
     ],
 });

@@ -33,6 +33,15 @@ Route::prefix('master')->group(function () {
         Route::get('getTrash', 'master\Barang@getTrash');
         Route::get('restoreData/{id}', 'master\Barang@restoreData');
     });
+    // Api modul supplier
+    Route::prefix('supplier')->group(function () {
+        // Api function dari modul master barang
+        Route::get('index', 'master\Supplier@index');
+        Route::post('updateOrCreate', 'master\Supplier@updateOrCreate');
+        Route::delete('delete/{id}', 'master\Supplier@destroy');
+        Route::get('getTrash', 'master\Supplier@getTrash');
+        Route::get('restoreData/{id}', 'master\Supplier@restoreData');
+    });
 });
 
 Route::get('/', function () {
