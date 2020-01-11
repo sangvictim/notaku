@@ -1,8 +1,13 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
-// Variables
-@import 'variables';
-
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap';
+@import '~bootstrap-vue';
+.table-scroll{
+    thead{
+        display: block;
+    }
+    tbody{
+        max-height: 16rem !important;
+        overflow: auto;
+        display: block;
+        width: 100%;
+    }
+}
