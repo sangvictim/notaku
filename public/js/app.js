@@ -2527,8 +2527,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2715,8 +2713,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var sweetalert2_dist_sweetalert2_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2/dist/sweetalert2.js */ "./node_modules/sweetalert2/dist/sweetalert2.js");
 /* harmony import */ var sweetalert2_dist_sweetalert2_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2_dist_sweetalert2_js__WEBPACK_IMPORTED_MODULE_1__);
-//
-//
 //
 //
 //
@@ -3182,8 +3178,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var sweetalert2_dist_sweetalert2_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2/dist/sweetalert2.js */ "./node_modules/sweetalert2/dist/sweetalert2.js");
 /* harmony import */ var sweetalert2_dist_sweetalert2_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2_dist_sweetalert2_js__WEBPACK_IMPORTED_MODULE_1__);
-//
-//
 //
 //
 //
@@ -73222,22 +73216,21 @@ var render = function() {
                     key: "cell(action)",
                     fn: function(data) {
                       return [
-                        _c("div", { staticClass: "btn-group dropleft" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "btn btn-info btn-sm dropdown-toggle dropdown-toggle-split",
-                              attrs: { "data-toggle": "dropdown" }
-                            },
-                            [_c("i", { staticClass: "fa fa-cog str-only" })]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "dropdown-menu" }, [
+                        _c(
+                          "b-dropdown",
+                          {
+                            staticClass: "m-2",
+                            attrs: {
+                              id: "dropdown-dropleft",
+                              dropleft: "",
+                              text: "Action",
+                              variant: "primary"
+                            }
+                          },
+                          [
                             _c(
-                              "button",
+                              "b-dropdown-item",
                               {
-                                staticClass: "dropdown-item",
                                 on: {
                                   click: function($event) {
                                     return _vm.editData(data.index)
@@ -73248,9 +73241,8 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _c(
-                              "button",
+                              "b-dropdown-item",
                               {
-                                staticClass: "dropdown-item",
                                 on: {
                                   click: function($event) {
                                     return _vm.deleteData(data.index)
@@ -73259,8 +73251,9 @@ var render = function() {
                               },
                               [_vm._v("Delete")]
                             )
-                          ])
-                        ])
+                          ],
+                          1
+                        )
                       ]
                     }
                   }
@@ -73926,22 +73919,21 @@ var render = function() {
                     key: "cell(action)",
                     fn: function(data) {
                       return [
-                        _c("div", { staticClass: "btn-group dropleft" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "btn btn-info btn-sm dropdown-toggle dropdown-toggle-split",
-                              attrs: { "data-toggle": "dropdown" }
-                            },
-                            [_c("i", { staticClass: "fa fa-cog str-only" })]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "dropdown-menu" }, [
+                        _c(
+                          "b-dropdown",
+                          {
+                            staticClass: "m-2",
+                            attrs: {
+                              id: "dropdown-dropleft",
+                              dropleft: "",
+                              text: "Action",
+                              variant: "primary"
+                            }
+                          },
+                          [
                             _c(
-                              "button",
+                              "b-dropdown-item",
                               {
-                                staticClass: "dropdown-item",
                                 on: {
                                   click: function($event) {
                                     return _vm.editData(data.index)
@@ -73952,9 +73944,8 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _c(
-                              "button",
+                              "b-dropdown-item",
                               {
-                                staticClass: "dropdown-item",
                                 on: {
                                   click: function($event) {
                                     return _vm.deleteData(data.index)
@@ -73963,8 +73954,9 @@ var render = function() {
                               },
                               [_vm._v("Delete")]
                             )
-                          ])
-                        ])
+                          ],
+                          1
+                        )
                       ]
                     }
                   }
@@ -74555,22 +74547,21 @@ var render = function() {
                     key: "cell(action)",
                     fn: function(data) {
                       return [
-                        _c("div", { staticClass: "btn-group dropleft" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "btn btn-info btn-sm dropdown-toggle dropdown-toggle-split",
-                              attrs: { "data-toggle": "dropdown" }
-                            },
-                            [_c("i", { staticClass: "fa fa-cog str-only" })]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "dropdown-menu" }, [
+                        _c(
+                          "b-dropdown",
+                          {
+                            staticClass: "m-2",
+                            attrs: {
+                              id: "dropdown-dropleft",
+                              dropleft: "",
+                              text: "Action",
+                              variant: "primary"
+                            }
+                          },
+                          [
                             _c(
-                              "button",
+                              "b-dropdown-item",
                               {
-                                staticClass: "dropdown-item",
                                 on: {
                                   click: function($event) {
                                     return _vm.editData(data.index)
@@ -74581,9 +74572,8 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _c(
-                              "button",
+                              "b-dropdown-item",
                               {
-                                staticClass: "dropdown-item",
                                 on: {
                                   click: function($event) {
                                     return _vm.deleteData(data.index)
@@ -74592,8 +74582,9 @@ var render = function() {
                               },
                               [_vm._v("Delete")]
                             )
-                          ])
-                        ])
+                          ],
+                          1
+                        )
                       ]
                     }
                   }

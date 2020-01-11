@@ -47,18 +47,16 @@
             <template v-slot:cell(No)="data">{{ data.index + 1 }}</template>
             <template v-slot:cell(satuan)="data">dus, pack, pcs</template>
             <template v-slot:cell(action)="data">
-              <div class="btn-group dropleft">
-                <button
-                  class="btn btn-info btn-sm dropdown-toggle dropdown-toggle-split"
-                  data-toggle="dropdown"
-                >
-                  <i class="fa fa-cog str-only"></i>
-                </button>
-                <div class="dropdown-menu">
-                  <button @click="editData(data.index)" class="dropdown-item">Edit</button>
-                  <button @click="deleteData(data.index)" class="dropdown-item">Delete</button>
-                </div>
-              </div>
+              <b-dropdown
+                id="dropdown-dropleft"
+                dropleft
+                text="Action"
+                variant="primary"
+                class="m-2"
+              >
+                <b-dropdown-item @click="editData(data.index)">Edit</b-dropdown-item>
+                <b-dropdown-item @click="deleteData(data.index)">Delete</b-dropdown-item>
+              </b-dropdown>
             </template>
           </b-table>
           <div class="row">
