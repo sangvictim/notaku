@@ -212,7 +212,7 @@ export default {
       ],
       currentPage: 1,
       fields: [
-        "No",
+        { key: "No", thStyle: { width: "5%" } },
         "kode",
         { key: "name", sortable: true },
         "address",
