@@ -1,7 +1,9 @@
 <?php
 
-Route::get('/', function () {
-    return view('login');
-});
+Auth::routes();
 
-Route::get('/page', 'SinglePageController@index');
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/', 'SinglePageController@index');
+    Route::get('/home', 'SinglePageController@index');
+    Route::get('/page', 'SinglePageController@index');
+});
