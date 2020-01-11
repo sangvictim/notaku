@@ -140,31 +140,41 @@
             <router-link to="/master-barang" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-              Master barang
+              Master Barang
               </p>
             
             </router-link>
           </li>
           <li class="nav-item">
-          <router-link to="/pembelian" class="nav-link">
+          <router-link to="/master-supplier" class="nav-link">
               <i class="nav-icon fas fa-user-secret"></i>
               <p>
-              Master supplier
+              Master Supplier
               </p>
             
             </router-link>
           </li>
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.0" class="nav-link">
+          <router-link to="/master-customer" class="nav-link">
               <i class="nav-icon fas fa-user-friends"></i>
-              <p>Master customer</p>
-            </a>
+              <p>
+              Master Customer
+              </p>
+            
+            </router-link>
           </li>
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.0" class="nav-link">
+            <router-link to="/" class="nav-link">
               <i class="nav-icon fab fa-vimeo-v"></i>
               <p>Master Promo</p>
-            </a>
+              </router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link to="/master-stok" class="nav-link">
+              <i class="nav-icon fab fa-vimeo-v"></i>
+              <p>Master Stok</p>
+              </router-link>
           </li>
 
           <li class="nav-header">Laporan</li>

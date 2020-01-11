@@ -15,10 +15,9 @@ class MasterKonversi extends Migration
     {
         Schema::create('master_konversi', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('id_barang');
+            $table->string('kode');
             $table->integer('qty');
             $table->integer('satuan');
-            $table->timestamps();
         });
     }
 

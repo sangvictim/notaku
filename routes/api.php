@@ -24,14 +24,33 @@ Route::get('login', 'AuthController@login');
 // Api gorup modul master
 Route::prefix('master')->group(function () {
 
-    // Api modul master
     Route::prefix('barang')->group(function () {
-        // Api function dari modul master barang
         Route::get('index', 'master\Barang@index');
-        Route::post('create', 'master\Barang@create');
-        Route::get('search/{query}', 'master\Barang@show');
-        Route::get('edit/{id}', 'master\Barang@edit');
-        Route::post('update/{id}', 'master\Barang@update');
+        Route::get('getSatuan', 'master\Barang@getSatuan');
+        Route::post('updateOrCreate', 'master\Barang@updateOrCreate');
+        Route::delete('delete/{id}', 'master\Barang@destroy');
+        Route::get('getTrash', 'master\Barang@getTrash');
+        Route::get('restoreData/{id}', 'master\Barang@restoreData');
+    });
+   
+    Route::prefix('supplier')->group(function () {
+        Route::get('index', 'master\Supplier@index');
+        Route::post('updateOrCreate', 'master\Supplier@updateOrCreate');
+        Route::delete('delete/{id}', 'master\Supplier@destroy');
+        Route::get('getTrash', 'master\Supplier@getTrash');
+        Route::get('restoreData/{id}', 'master\Supplier@restoreData');
+    });
+
+    Route::prefix('customer')->group(function () {
+        Route::get('index', 'master\Customer@index');
+        Route::post('updateOrCreate', 'master\Customer@updateOrCreate');
+        Route::delete('delete/{id}', 'master\Customer@destroy');
+        Route::get('getTrash', 'master\Customer@getTrash');
+        Route::get('restoreData/{id}', 'master\Customer@restoreData');
+    });
+
+    Route::prefix('stok')->group(function () {
+        Route::get('index', 'master\Stok@index');
     });
 });
 

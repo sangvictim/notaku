@@ -15,6 +15,7 @@ class MasterSupplier extends Migration
     {
         Schema::create('master_supplier', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('kode');
             $table->string('name');
             $table->text('address');
             $table->string('contact')->nullable();
@@ -23,6 +24,7 @@ class MasterSupplier extends Migration
             $table->string('pic_contact_1');
             $table->string('pic_contact_2')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

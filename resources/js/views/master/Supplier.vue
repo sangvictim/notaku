@@ -8,7 +8,7 @@
               <div class="row">
                 <div class="col-6">
                   <button class="btn btn-info btn-block" v-b-modal.modal-create>
-                    <i class="fa fa-plus"></i> Barang
+                    <i class="fa fa-plus"></i> Supplier
                   </button>
                 </div>
                 <div class="col-6">
@@ -20,14 +20,14 @@
             </div>
             <div class="col-6 d-flex justify-content-center">
               <h3>
-                <i class="fa fa-coins"></i> Master Barang
+                <i class="fa fa-user-secret"></i> Master Supplier
               </h3>
             </div>
             <div class="col-3">
               <input
                 type="text"
                 class="form-control"
-                placeholder="Cari Kode / Nama Barang"
+                placeholder="Cari Kode / Nama Supplier"
                 v-model="searchQuery"
               />
             </div>
@@ -45,7 +45,6 @@
             small
           >
             <template v-slot:cell(No)="data">{{ data.index + 1 }}</template>
-            <template v-slot:cell(satuan)="data">dus, pack, pcs</template>
             <template v-slot:cell(action)="data">
               <div class="btn-group dropleft">
                 <button
@@ -83,7 +82,7 @@
     <b-modal id="modal-create" ref="modal-create" hide-footer>
       <template v-slot:modal-header="{ close }">
         <!-- Emulate built in modal header close button action -->
-        <h5>Master Barang Baru</h5>
+        <h5>Master Supplier Baru</h5>
 
         <b-button size="sm" variant="danger" @click="closeModal()">
           <i class="fa fa-times-circle"></i>
@@ -93,7 +92,7 @@
         <div class="col-12 mb-2">
           <div class="row">
             <div class="col-4">
-              <label>Kode Barang</label>
+              <label>Kode Supplier</label>
             </div>
             <div class="col-8">
               <input type="text" class="form-control" v-model="newData.kode" required />
@@ -103,7 +102,7 @@
         <div class="col-12 mb-2">
           <div class="row">
             <div class="col-4">
-              <label>Nama Barang</label>
+              <label>Nama Supplier</label>
             </div>
             <div class="col-8">
               <input type="text" class="form-control" v-model="newData.name" required />
@@ -113,105 +112,60 @@
         <div class="col-12 mb-2">
           <div class="row">
             <div class="col-4">
-              <label>Harga Beli</label>
+              <label>Address</label>
             </div>
             <div class="col-8">
-              <input
-                type="number"
-                min="0"
-                class="form-control"
-                v-model="newData.harga_beli"
-                required
-              />
+              <input type="text" class="form-control" v-model="newData.address" required />
             </div>
           </div>
         </div>
         <div class="col-12 mb-2">
           <div class="row">
             <div class="col-4">
-              <label>Harga Grosir</label>
+              <label>Contact</label>
             </div>
             <div class="col-8">
-              <input
-                type="number"
-                min="0"
-                class="form-control"
-                v-model="newData.harga_grosir"
-                required
-              />
+              <input type="number" min="0" class="form-control" v-model="newData.contact" required />
             </div>
           </div>
         </div>
         <div class="col-12 mb-2">
           <div class="row">
             <div class="col-4">
-              <label>Harga Retail</label>
+              <label>Pic Name</label>
             </div>
             <div class="col-8">
-              <input
-                type="number"
-                min="0"
-                class="form-control"
-                v-model="newData.harga_retail"
-                required
-              />
+              <input type="text" class="form-control" v-model="newData.pic_name" required />
             </div>
           </div>
         </div>
         <div class="col-12 mb-2">
           <div class="row">
             <div class="col-4">
-              <label>Satuan Besar</label>
+              <label>Pic Address</label>
             </div>
-            <div class="col-4">
-              <input type="number" min="0" class="form-control" v-model="satuan[0].qty" required />
-            </div>
-            <div class="col-4">
-              <b-form-select v-model="satuan[0].satuan">
-                <option
-                  v-for="(item, index) in optionsSatuan"
-                  v-bind:value="item.id"
-                  :key="index"
-                >{{ item.name }}</option>
-              </b-form-select>
+            <div class="col-8">
+              <input type="text" class="form-control" v-model="newData.pic_address" required />
             </div>
           </div>
         </div>
         <div class="col-12 mb-2">
           <div class="row">
             <div class="col-4">
-              <label>Satuan Sedang</label>
+              <label>Pic Phone 1</label>
             </div>
-            <div class="col-4">
-              <input type="number" min="0" class="form-control" v-model="satuan[1].qty" required />
-            </div>
-            <div class="col-4">
-              <b-form-select v-model="satuan[1].satuan">
-                <option
-                  v-for="(item, index) in optionsSatuan"
-                  v-bind:value="item.id"
-                  :key="index"
-                >{{ item.name }}</option>
-              </b-form-select>
+            <div class="col-8">
+              <input type="number" class="form-control" v-model="newData.pic_contact_1" required />
             </div>
           </div>
         </div>
         <div class="col-12 mb-2">
           <div class="row">
             <div class="col-4">
-              <label>Satuan Kecil</label>
+              <label>Pic Phone 2</label>
             </div>
-            <div class="col-4">
-              <input type="number" min="0" class="form-control" v-model="satuan[2].qty" required />
-            </div>
-            <div class="col-4">
-              <b-form-select v-model="satuan[2].satuan">
-                <option
-                  v-for="(item, index) in optionsSatuan"
-                  v-bind:value="item.id"
-                  :key="index"
-                >{{ item.name }}</option>
-              </b-form-select>
+            <div class="col-8">
+              <input type="number" class="form-control" v-model="newData.pic_contact_2" required />
             </div>
           </div>
         </div>
@@ -261,25 +215,25 @@ export default {
         { key: "No", thStyle: { width: "5%" } },
         "kode",
         { key: "name", sortable: true },
-        { key: "harga_beli", sortable: true },
-        { key: "harga_grosir", sortable: true },
-        { key: "harga_retail", sortable: true },
-        "satuan",
+        "address",
+        "contact",
+        "pic_name",
+        "pic_address",
+        "pic_contact_1",
+        "pic_contact_2",
         "action"
       ],
       items: [],
       newData: {},
       itemsTrash: [],
       fieldsTrash: ["kode", "name", "action"],
-      searchQuery: null,
-      satuan: [{}, {}, {}],
-      optionsSatuan: [{ value: this.name, text: name }]
+      searchQuery: null
     };
   },
   methods: {
     getData() {
       axios
-        .get("/api/master/barang/index")
+        .get("/api/master/supplier/index")
         .then(res => {
           this.items = res.data.result;
         })
@@ -287,25 +241,17 @@ export default {
           Swal.fire("Oops...", "Data gagal diunduh!", "error");
         });
     },
-    getSatuan() {
-      axios
-        .get("/api/master/barang/getSatuan")
-        .then(res => {
-          this.optionsSatuan = res.data.result;
-        })
-        .catch(err => {
-          Swal.fire("Oops...", "Data gagal diunduh!", "error");
-        });
-    },
     updateOrCreate() {
       axios
-        .post("/api/master/barang/updateOrCreate", {
+        .post("/api/master/supplier/updateOrCreate", {
           kode: this.newData.kode,
           name: this.newData.name,
-          harga_beli: this.newData.harga_beli,
-          harga_grosir: this.newData.harga_grosir,
-          harga_retail: this.newData.harga_retail,
-          satuan: this.satuan
+          address: this.newData.address,
+          contact: this.newData.contact,
+          pic_name: this.newData.pic_name,
+          pic_address: this.newData.pic_address,
+          pic_contact_1: this.newData.pic_contact_1,
+          pic_contact_2: this.newData.pic_contact_2
         })
         .then(res => {
           this.$refs["modal-create"].hide();
@@ -318,7 +264,6 @@ export default {
     },
     editData(index) {
       this.newData = this.items[index];
-      this.satuan = this.satuan;
       this.$refs["modal-create"].show();
     },
     deleteData(index) {
@@ -333,7 +278,7 @@ export default {
       }).then(result => {
         if (result.value) {
           axios
-            .delete("/api/master/barang/delete/" + this.items[index].id)
+            .delete("/api/master/supplier/delete/" + this.items[index].id)
             .then(res => {
               Swal.fire("Deleted!", "Data berhasil dihapus!", "success");
               this.getData();
@@ -346,7 +291,7 @@ export default {
     },
     getDataTrash() {
       axios
-        .get("/api/master/barang/getTrash")
+        .get("/api/master/supplier/getTrash")
         .then(res => {
           this.$refs["modal-trash"].show();
           this.itemsTrash = res.data.result;
@@ -357,7 +302,7 @@ export default {
     },
     restoreData(index) {
       axios
-        .get("/api/master/barang/restoreData/" + this.itemsTrash[index].id)
+        .get("/api/master/supplier/restoreData/" + this.itemsTrash[index].id)
         .then(res => {
           this.$refs["modal-trash"].hide();
           this.getData();
@@ -394,7 +339,6 @@ export default {
   },
   created() {
     this.getData();
-    this.getSatuan();
   }
 };
 </script>

@@ -15,7 +15,7 @@ class MasterStok extends Migration
     {
         Schema::create('master_stok', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('kode_barang');
+            $table->string('kode');
             $table->integer('stok_barang');
         });
     }

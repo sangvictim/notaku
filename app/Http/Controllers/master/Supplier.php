@@ -4,12 +4,10 @@ namespace App\Http\Controllers\master;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\model\master\M_barang;
-use App\model\M_konversi;
+use App\model\master\M_supplier;
 use Validator;
-use DB;
 
-class Barang extends Controller
+class Supplier extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,20 +16,7 @@ class Barang extends Controller
      */
     public function index()
     {
-        $data = M_barang::all();
-        // $satuan = M_barang::select('master_barang.kode','master_satuan.name')
-        //                 ->join('master_konversi', 'master_barang.kode', '=', 'master_konversi.kdoe')
-        //                 ->join('master_satuan', 'master_konversi.satuan', '=', 'master_satuan.id')
-        //                 ->get();
-        return response()->json([
-            'status' => '200 OK',
-            'result' => $data
-        ]);
-    }
-
-    public function getSatuan()
-    {
-        $data = DB::select('SELECT * FROM master_satuan');
+        $data = M_supplier::all();
         return response()->json([
             'status' => '200 OK',
             'result' => $data,
@@ -49,9 +34,10 @@ class Barang extends Controller
         $validator = Validator::make($request->all(), [
             'kode'=>'required',
             'name'=>'required',
-            'harga_beli'=>'required',
-            'harga_grosir'=>'required',
-            'harga_retail'=>'required',
+            'address'=>'required',
+            'contact'=>'required',
+            'pic_name'=>'required',
+            'pic_contact_1'=>'required',
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -59,24 +45,19 @@ class Barang extends Controller
                 'message' => $validator,
             ]);
         } else {
-            M_barang::updateOrCreate(
+            M_supplier::updateOrCreate(
                 [
                     'kode' => $request['kode'],
                 ],
                 [
                     'name' => $request['name'],
-                    'harga_beli' => $request['harga_beli'],
-                    'harga_grosir' => $request['harga_grosir'],
-                    'harga_retail' => $request['harga_retail'],
+                    'address' => $request['address'],
+                    'contact' => $request['contact'],
+                    'pic_name' => $request['pic_name'],
+                    'pic_address' => $request['pic_address'],
+                    'pic_contact_1' => $request['pic_contact_1'],
+                    'pic_contact_2' => $request['pic_contact_2'],
                 ]);
-            M_konversi::where('kode', $request['kode'])->delete();
-            foreach ($request['satuan'] as $val) {
-                M_konversi::insert([
-                    'kode'=>$request['kode'],
-                    'qty'=>$val['qty'],
-                    'satuan'=>$val['satuan']
-                ]);
-            };
         }
         
     }
@@ -89,7 +70,7 @@ class Barang extends Controller
      */
     public function getTrash()
     {
-        $data = M_barang::select('id', 'kode', 'name')->onlyTrashed()->get();
+        $data = M_supplier::select('id', 'kode', 'name')->onlyTrashed()->get();
         return response()->json([
             'status' => '200 OK',
             'result' => $data,
@@ -105,7 +86,7 @@ class Barang extends Controller
      */
     public function restoreData($id)
     {
-        M_barang::withTrashed()->where('id', $id)->restore();
+        M_supplier::withTrashed()->where('id', $id)->restore();
     
     }
 
@@ -117,6 +98,6 @@ class Barang extends Controller
      */
     public function destroy($id)
     {
-        M_barang::findOrfail($id)->delete();
+        M_supplier::findOrfail($id)->delete();
     }
 }

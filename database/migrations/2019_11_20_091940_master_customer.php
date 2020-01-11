@@ -15,10 +15,12 @@ class MasterCustomer extends Migration
     {
         Schema::create('master_customer', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama');
+            $table->string('kode');
+            $table->string('name');
             $table->text('address');
             $table->string('contact', 15);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

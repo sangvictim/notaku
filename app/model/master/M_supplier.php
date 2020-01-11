@@ -4,15 +4,14 @@ namespace App\model\master;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\model\master\M_stok;
 
-class M_barang extends Model
+class M_supplier extends Model
 {
     use SoftDeletes;
 
-    protected $table = "master_barang";
+    protected $table = "master_supplier";
 
-    protected $fillable = ['kode', 'name', 'harga_beli', 'harga_grosir', 'harga_retail'];
+    protected $fillable = ['kode', 'name', 'address', 'contact', 'pic_name', 'pic_address', 'pic_contact_1', 'pic_contact_2'];
 
     protected $dates = ['deleted_at'];
 

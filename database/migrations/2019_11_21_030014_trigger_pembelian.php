@@ -16,7 +16,7 @@ class TriggerPembelian extends Migration
         DB::unprepared('
         CREATE TRIGGER trigger_pembelian AFTER INSERT ON `transaksi_pembelian_detail` FOR EACH ROW
             BEGIN
-                UPDATE master_stok SET `stok_barang` = `stok_barang` + new.qty WHERE master_stok.kode_barang = new.kode_barang;
+                UPDATE master_stok SET `stok_barang` = `stok_barang` + new.qty WHERE master_stok.kode = new.kode_barang;
             END
         ');
     }
