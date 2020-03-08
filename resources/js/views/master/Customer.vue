@@ -93,7 +93,13 @@
               <label>Kode Customer</label>
             </div>
             <div class="col-8">
-              <input type="text" class="form-control" v-model="newData.kode" required />
+              <input
+                type="text"
+                style="text-transform:uppercase"
+                class="form-control"
+                v-model="newData.kode"
+                required
+              />
             </div>
           </div>
         </div>

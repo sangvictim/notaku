@@ -94,7 +94,13 @@
               <label>Kode Barang</label>
             </div>
             <div class="col-8">
-              <input type="text" class="form-control" v-model="newData.kode" required />
+              <input
+                type="text"
+                class="form-control"
+                style="text-transform:uppercase"
+                v-model="newData.kode"
+                required
+              />
             </div>
           </div>
         </div>

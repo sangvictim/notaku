@@ -13,7 +13,7 @@
                     Penjualan
                   </h3>
                 </div>
-                <div class="col-3 row d-flex align-items-center">
+                <div class="col-4 row d-flex align-items-center">
                   <label class="col-4">Tanggal</label>
                   <div class="col-8">
                     <input
@@ -25,18 +25,13 @@
                   </div>
                 </div>
                 <div class="col-4 row d-flex align-items-center">
-                  <label class="col-4">No. Faktur</label>
+                  <label class="col-4">Customer</label>
                   <div class="col-8">
-                    <input type="email" class="form-control form-control-sm" disabled />
-                  </div>
-                </div>
-                <div class="col-3 row d-flex align-items-center">
-                  <label class="col-6">Id. Customer</label>
-                  <div class="col-6">
                     <input
-                      type="email"
+                      type="text"
                       class="form-control form-control-sm"
                       placeholder="Id. Customer"
+                      v-model="id_customer"
                     />
                   </div>
                 </div>
@@ -50,11 +45,14 @@
                     <input
                       type="text"
                       name="kode_barang"
-                      id="kode_barang"
+                      ref="code"
                       class="form-control"
+                      style="text-transform:uppercase"
                       autofocus
                       accesskey="F1"
+                      v-model="newBarang.code"
                       placeholder="Kode Barang"
+                      v-on:keyup="CheckBarang"
                     />
                   </div>
                 </div>
@@ -68,6 +66,7 @@
                       class="form-control"
                       placeholder="Nama Barang"
                       disabled
+                      v-model="newBarang.name"
                     />
                   </div>
                 </div>
@@ -77,10 +76,13 @@
                     <input
                       type="number"
                       min="0"
+                      ref="qty"
                       name="jumlah_barang"
                       id="jumlah_barang"
                       class="form-control"
                       placeholder="Jumlah Barang"
+                      v-model="newBarang.qty"
+                      v-on:keyup="addToChart"
                     />
                   </div>
                 </div>
@@ -99,84 +101,12 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                      <tr v-for="item in listBarang" :key="item.index">
                         <td style="width: 2%">1.</td>
-                        <td style="width: 15%">BRG201901</td>
-                        <td style="width: 40%">Nama Barang satu</td>
-                        <td style="width: 10%">5</td>
-                        <td style="width: 15%" class="text-right">15.000</td>
-                        <td style="width: 7%">
-                          <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="width: 2%">1.</td>
-                        <td style="width: 15%">BRG201901</td>
-                        <td style="width: 40%">Nama Barang satu</td>
-                        <td style="width: 10%">5</td>
-                        <td style="width: 15%" class="text-right">15.000</td>
-                        <td style="width: 7%">
-                          <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="width: 2%">1.</td>
-                        <td style="width: 15%">BRG201901</td>
-                        <td style="width: 40%">Nama Barang satu</td>
-                        <td style="width: 10%">5</td>
-                        <td style="width: 15%" class="text-right">15.000</td>
-                        <td style="width: 7%">
-                          <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="width: 2%">1.</td>
-                        <td style="width: 15%">BRG201901</td>
-                        <td style="width: 40%">Nama Barang satu</td>
-                        <td style="width: 10%">5</td>
-                        <td style="width: 15%" class="text-right">15.000</td>
-                        <td style="width: 7%">
-                          <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="width: 2%">1.</td>
-                        <td style="width: 15%">BRG201901</td>
-                        <td style="width: 40%">Nama Barang satu</td>
-                        <td style="width: 10%">5</td>
-                        <td style="width: 15%" class="text-right">15.000</td>
-                        <td style="width: 7%">
-                          <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="width: 2%">1.</td>
-                        <td style="width: 15%">BRG201901</td>
-                        <td style="width: 40%">Nama Barang satu</td>
-                        <td style="width: 10%">5</td>
-                        <td style="width: 15%" class="text-right">15.000</td>
-                        <td style="width: 7%">
-                          <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="width: 2%">1.</td>
-                        <td style="width: 15%">BRG201901</td>
-                        <td style="width: 40%">Nama Barang satu</td>
-                        <td style="width: 10%">5</td>
-                        <td style="width: 15%" class="text-right">15.000</td>
+                        <td style="width: 15%">{{item.code}}</td>
+                        <td style="width: 40%">{{item.name}}</td>
+                        <td style="width: 10%">{{item.qty}}</td>
+                        <td style="width: 15%" class="text-right">{{ThousandSep(item.harga)}}</td>
                         <td style="width: 7%">
                           <button class="btn btn-danger btn-sm">
                             <i class="fas fa-trash"></i>
@@ -188,14 +118,16 @@
                 </div>
                 <div class="col-4">
                   <div class="row">
-                    <div class="col-3 d-flex align-items-center">
+                    <div class="col-4 d-flex align-items-center">
                       <span>Sub total</span>
                     </div>
-                    <div class="col-9 text-right">
-                      <h1 style="color: red; font-size: 3rem; font-weight: bold;">12.000</h1>
+                    <div class="col-8 text-right">
+                      <h1
+                        style="color: red; font-size: 3rem; font-weight: bold;"
+                      >{{this.subTotal ? ThousandSep(this.subTotal) : 0}}</h1>
                     </div>
                   </div>
-                  <div class="row">
+                  <!-- <div class="row">
                     <div class="col-4">
                       <select name="cara_bayar" class="form-control">
                         <option value="0">Cash</option>
@@ -205,9 +137,15 @@
                     <div class="col-8">
                       <input type="number" min="0" class="form-control" placeholder="Nominal" />
                     </div>
-                  </div>
-                  <div class="row py-1">
+                  </div>-->
+                  <!-- <div class="row py-1">
                     <div class="col-4 d-flex align-items-center">
+                      <select name="type_discount" class="form-control">
+                        <option value="persen">%</option>
+                        <option value="net">Rp</option>
+                      </select>
+                    </div>
+                    <div class="col-8 d-flex align-items-center">
                       <input
                         type="number"
                         min="0"
@@ -217,30 +155,15 @@
                         placeholder="Discount"
                       />
                     </div>
-                    <div class="col-3 d-flex align-items-center">
-                      <select name="type_discount" class="form-control">
-                        <option value="persen">%</option>
-                        <option value="net">Rp</option>
-                      </select>
-                    </div>
-                    <div class="col-5">
-                      <input
-                        type="text"
-                        name="kode_promo"
-                        id="kode_promo"
-                        class="form-control"
-                        placeholder="Kode Promo"
-                      />
-                    </div>
-                  </div>
-                  <div class="row">
+                  </div>-->
+                  <!-- <div class="row">
                     <div class="col-3">
                       <label>Total</label>
                     </div>
                     <div class="col-9 text-right">
                       <h1 style="color: blue; font-weight: bold;">12.000</h1>
                     </div>
-                  </div>
+                  </div>-->
                   <div class="row">
                     <div class="col-4 d-flex align-items-center">
                       <label>Bayar</label>
@@ -253,6 +176,8 @@
                         id="jumlah_bayar"
                         class="form-control"
                         placeholder="jumlah bayar"
+                        v-model="jmlBayar"
+                        v-on:keydown="bayar"
                       />
                     </div>
                   </div>
@@ -261,11 +186,11 @@
                       <label>Kembalian</label>
                     </div>
                     <div class="col-9 text-right">
-                      <h4 style="font-weight: bold;">12.000</h4>
+                      <h4 style="font-weight: bold;">{{ThousandSep(kembalian)}}</h4>
                     </div>
                   </div>
                   <div class="row d-flex justify-content-between">
-                    <button class="btn btn-primary btn-sm">
+                    <button class="btn btn-primary btn-sm" v-on:click="sellProduct">
                       <i class="fa fa-save"></i> Simpan
                     </button>
                     <button class="btn btn-primary btn-sm">
@@ -319,11 +244,104 @@
 </template>
 
 <script>
+import axios from "axios";
+import Swal from "sweetalert2/dist/sweetalert2.js";
 export default {
   data() {
     return {
-      tanggal: new Date().toLocaleDateString()
+      tanggal: new Date().toLocaleDateString("id"),
+      newBarang: {
+        code: "",
+        name: "",
+        qty: 0,
+        harga: 0,
+        id: null
+      },
+      listBarang: [],
+      subTotal: 0,
+      jmlBayar: 0,
+      kembalian: 0,
+      id_customer: 0
     };
+  },
+  methods: {
+    ThousandSep(x) {
+      if (x === undefined || x === null) return "";
+      const v = x.toString().split(".");
+      return (
+        v[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") +
+        (v[1] ? "," + v[1] : "")
+      );
+    },
+    CheckBarang(e) {
+      if (e.keyCode === 13) {
+        axios
+          .post("api/transaksi/penjualan/findproduct", {
+            kode: this.newBarang.code
+          })
+          .then(res => {
+            this.newBarang = {
+              code: res.data.result.kode,
+              name: res.data.result.name,
+              harga: res.data.result.harga,
+              id: res.data.result.id,
+              qty: 1
+            };
+            this.$refs.qty.focus();
+          })
+          .catch(err => {
+            Swal.fire("Oops...", "Data barang tidak di temukan", "error");
+          });
+      }
+    },
+    addToChart(e) {
+      if (e.keyCode === 13) {
+        if (this.newBarang.harga > 0 && this.newBarang.qty > 0) {
+          this.subTotal =
+            this.subTotal + this.newBarang.harga * this.newBarang.qty;
+          this.listBarang.push(this.newBarang);
+          this.newBarang = {};
+          this.$refs.code.focus();
+        } else {
+          Swal.fire(
+            "Oops...",
+            "Masukkan kode product terlebih dahulu",
+            "error"
+          );
+        }
+      }
+    },
+    bayar(e) {
+      if (e.keyCode === 13) {
+        this.kembalian = this.jmlBayar - this.subTotal;
+      }
+    },
+    sellProduct() {
+      if (this.listBarang.length > 0) {
+        axios
+          .post("api/transaksi/penjualan/sellproduct", {
+            id_customer: this.id_customer,
+            subtotal: this.subTotal,
+            total: this.subTotal,
+            total_bayar: this.jmlBayar,
+            kembalian: this.kembalian,
+            productDetail: this.listBarang
+          })
+          .then(res => {
+            Swal.fire("Oops...", "Produk berhasil di jual", "success");
+            this.id_customer = 0;
+            this.subTotal = 0;
+            this.jmlBayar = 0;
+            this.kembalian = 0;
+            this.listBarang = [];
+          })
+          .catch(err => {
+            Swal.fire("Oops...", "Produk gagal di jual", "error");
+          });
+      } else {
+        Swal.fire("Oops...", "Masukkan data product terlebih dahulu", "error");
+      }
+    }
   }
 };
 </script>

@@ -54,6 +54,16 @@ Route::prefix('master')->group(function () {
     });
 });
 
+//Api group modul transaksi
+Route::prefix('transaksi')->group(function () {
+
+    Route::prefix('penjualan')->group(function () {
+        Route::get('createfaktur', 'transaksi\Penjualan@CreateFaktur');
+        Route::post('findproduct', 'transaksi\Penjualan@findProduct');
+        Route::post('sellproduct', 'transaksi\Penjualan@sellProduct');
+    });
+});
+
 Route::get('/', function () {
     return [
         'app' => config('app.name'),

@@ -17,11 +17,14 @@ class TransaksiPenjualan extends Migration
             $table->bigIncrements('id');
             $table->string('no_invoice');
             $table->integer('id_customer')->nullable();
-            $table->date('tgl_penjualan');
+            $table->dateTime('tgl_penjualan');
             $table->string('type_disc')->nullable();
             $table->integer('disc')->nullable();
             $table->string('kode_promo')->nullable();
+            $table->integer('subtotal');
             $table->integer('total');
+            $table->integer('total_bayar');
+            $table->integer('kembalian');
             $table->timestamps();
         });
     }
