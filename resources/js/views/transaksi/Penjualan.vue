@@ -108,7 +108,10 @@
                         <td style="width: 10%">{{item.qty}}</td>
                         <td style="width: 15%" class="text-right">{{ThousandSep(item.harga)}}</td>
                         <td style="width: 7%">
-                          <button class="btn btn-danger btn-sm">
+                          <button
+                            class="btn btn-danger btn-sm"
+                            v-on:click="removeFromChart(item.id, item.harga)"
+                          >
                             <i class="fas fa-trash"></i>
                           </button>
                         </td>
@@ -259,7 +262,7 @@ export default {
       },
       listBarang: [],
       subTotal: 0,
-      jmlBayar: 0,
+      jmlBayar: null,
       kembalian: 0,
       id_customer: 0
     };
@@ -310,6 +313,10 @@ export default {
           );
         }
       }
+    },
+    removeFromChart(id, harga) {
+      this.listBarang.splice(x => (x.id = id), 1);
+      this.subTotal = this.subTotal - harga;
     },
     bayar(e) {
       if (e.keyCode === 13) {

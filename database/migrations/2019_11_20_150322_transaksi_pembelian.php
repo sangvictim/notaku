@@ -20,7 +20,10 @@ class TransaksiPembelian extends Migration
             $table->date('tgl_pembelian');
             $table->string('type_disc')->nullable();
             $table->integer('disc')->nullable();
+            $table->integer('subtotal');
             $table->integer('total');
+            $table->integer('total_bayar');
+            $table->integer('kembalian');
             $table->timestamps();
         });
     }

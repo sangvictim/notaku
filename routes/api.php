@@ -62,6 +62,11 @@ Route::prefix('transaksi')->group(function () {
         Route::post('findproduct', 'transaksi\Penjualan@findProduct');
         Route::post('sellproduct', 'transaksi\Penjualan@sellProduct');
     });
+    Route::prefix('pembelian')->group(function () {
+        Route::get('createfaktur', 'transaksi\pembelian@CreateFaktur');
+        Route::post('findproduct', 'transaksi\pembelian@findProduct');
+        Route::post('sellproduct', 'transaksi\pembelian@sellProduct');
+    });
 });
 
 Route::get('/', function () {
